@@ -1,0 +1,48 @@
+{
+ "properties": {
+  "displayName": "LIMIT THE AZURE VM SIZES",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "LIMIT THE AZURE VM SIZES",
+  "metadata": {
+   "version": "1.0.1",
+   "category": "compute",
+   "createdBy": "a1215cfe-0e54-4359-9bb3-067955ab6fb8",
+   "createdOn": "2022-01-04T14:18:26.583924Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "listOfAllowedSKUs": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Size SKUs",
+     "description": "The list of size SKUs that can be specified for virtual machines.",
+     "strongType": "VMSKUs"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/virtualMachines"
+     },
+     {
+      "not": {
+       "field": "Microsoft.Compute/virtualMachines/sku.name",
+       "in": "[parameters('listOfAllowedSKUs')]"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "Deny"
+   }
+  }
+ },
+ "id": "/subscriptions/b2ceda44-2b61-42fb-a4bc-3dae69cbab50/providers/Microsoft.Authorization/policyDefinitions/9aa11793-d3db-4509-b280-1d2c0b34d2fb",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "9aa11793-d3db-4509-b280-1d2c0b34d2fb"
+}
