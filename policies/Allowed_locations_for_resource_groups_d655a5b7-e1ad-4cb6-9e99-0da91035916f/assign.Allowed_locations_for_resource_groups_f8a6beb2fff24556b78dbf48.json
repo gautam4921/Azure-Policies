@@ -1,0 +1,35 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Allowed locations for resource groups",
+  "policyDefinitionId": "/subscriptions/b2ceda44-2b61-42fb-a4bc-3dae69cbab50/providers/Microsoft.Authorization/policyDefinitions/d655a5b7-e1ad-4cb6-9e99-0da91035916f",
+  "scope": "/subscriptions/b2ceda44-2b61-42fb-a4bc-3dae69cbab50",
+  "notScopes": [],
+  "parameters": {
+   "listOfAllowedLocations": {
+    "value": [
+     "eastus",
+     "eastus2",
+     "asiapacific"
+    ]
+   }
+  },
+  "metadata": {
+   "assignedBy": "Gautam Prasad",
+   "parameterScopes": {
+    "listOfAllowedLocations": "/subscriptions/b2ceda44-2b61-42fb-a4bc-3dae69cbab50"
+   },
+   "createdBy": "a1215cfe-0e54-4359-9bb3-067955ab6fb8",
+   "createdOn": "2022-01-07T03:18:19.7717902Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/b2ceda44-2b61-42fb-a4bc-3dae69cbab50/providers/Microsoft.Authorization/policyAssignments/f8a6beb2fff24556b78dbf48",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "f8a6beb2fff24556b78dbf48"
+}

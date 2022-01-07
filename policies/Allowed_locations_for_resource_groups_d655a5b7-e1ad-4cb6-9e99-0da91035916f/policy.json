@@ -1,0 +1,46 @@
+{
+ "properties": {
+  "displayName": "Allowed locations for resource groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "General",
+   "createdBy": "a1215cfe-0e54-4359-9bb3-067955ab6fb8",
+   "createdOn": "2022-01-07T03:15:27.3558722Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "listOfAllowedLocations": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed locations",
+     "description": "The list of locations that resource groups can be created in.",
+     "strongType": "location"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "field": "location",
+      "notIn": "[parameters('listOfAllowedLocations')]"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/b2ceda44-2b61-42fb-a4bc-3dae69cbab50/providers/Microsoft.Authorization/policyDefinitions/d655a5b7-e1ad-4cb6-9e99-0da91035916f",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d655a5b7-e1ad-4cb6-9e99-0da91035916f"
+}
